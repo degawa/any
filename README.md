@@ -124,18 +124,18 @@ print *, as_int32(max_of("int32")), as_real32(max_of("real32"))
 
 ## Supported types and extension
 The `any_type` supports the intrinsic types (`integer(int8)`, `integer(int16)`, `integer(int32)`, `integer(int64)`, `real(real32)`, `real(real64)`, `real(real128)`, `complex(real32)`, `complex(real64)`, `complex(real128)`, `logical`, and `character(*)`) and arrays of ranks 1 to 15 of their types. The conversion functions for their types are defined:
-- `as_int8()`, `as_int8_rank[1-15]`()
-- `as_int16()`, `as_int16_rank[1-15]`()
-- `as_int32()`, `as_int32_rank[1-15]`()
-- `as_int64()`, `as_int64_rank[1-15]`()
-- `as_real32()`, `as_real32_rank[1-15]`()
-- `as_real64()`, `as_real64_rank[1-15]`()
-- `as_real128()`, `as_real128_rank[1-15]`()
-- `as_complex32()`, `as_complex32_rank[1-15]`()
-- `as_complex64()`, `as_complex64_rank[1-15]`()
-- `as_complex128()`, `as_complex128_rank[1-1`5]()
-- `as_logical()`, `as_logical_rank[1-15]`()
-- `as_char()`, `as_char_rank[1-15]`()
+- `as_int8()`, `as_int8_rank[1-15]()`
+- `as_int16()`, `as_int16_rank[1-15]()`
+- `as_int32()`, `as_int32_rank[1-15]()`
+- `as_int64()`, `as_int64_rank[1-15]()`
+- `as_real32()`, `as_real32_rank[1-15]()`
+- `as_real64()`, `as_real64_rank[1-15]()`
+- `as_real128()`, `as_real128_rank[1-15]()`
+- `as_complex32()`, `as_complex32_rank[1-15]()`
+- `as_complex64()`, `as_complex64_rank[1-15]()`
+- `as_complex128()`, `as_complex128_rank[1-15]()`
+- `as_logical()`, `as_logical_rank[1-15]()`
+- `as_char()`, `as_char_rank[1-15]()`
 
 Extend the `any_type` and add a type-bound procedure for assignment to support types other than the intrinsic types. Also, implement the conversion function if necessary. The following shows an example of supporting a user-defined type `vector_2d`.
 
