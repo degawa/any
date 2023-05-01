@@ -52,7 +52,7 @@ any = {git = "https://github.com/degawa/any.git"}
 
 ## Usage
 This use-defined type is simple, thanks to the features of object-oriented programming.
-- Define the return value type as this type in the function that returns different types.
+- Define the return value type as `any_type` in the function that returns different types.
 - Call the function and assign the function's return value to a variable.
 
 For example, depending on the argument's value, the `max_of` function returns an integer or real.
