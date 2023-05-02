@@ -123,7 +123,9 @@ print *, as_int32(max_of("int32")), as_real32(max_of("real32"))
 ```
 
 ## Supported types and extension
-The `any_type` supports the intrinsic types (`integer(int8)`, `integer(int16)`, `integer(int32)`, `integer(int64)`, `real(real32)`, `real(real64)`, `real(real128)`, `complex(real32)`, `complex(real64)`, `complex(real128)`, `logical`, and `character(*)`) and arrays of ranks 1 to 15 of their types. The conversion functions for their types are defined:
+The `any_type` supports the intrinsic types (`integer(int8)`, `integer(int16)`, `integer(int32)`, `integer(int64)`, `real(real32)`, `real(real64)`, `real(real128)`, `complex(real32)`, `complex(real64)`, `complex(real128)`, `logical`, and `character(*)`) and arrays of ranks 1 to 15 of their types. Note that an array must have the allocatable attribute when assigning `any_type` to the array.
+
+The conversion functions for their types are defined:
 - `as_int8()`, `as_int8_rank[1-15]()`
 - `as_int16()`, `as_int16_rank[1-15]()`
 - `as_int32()`, `as_int32_rank[1-15]()`
@@ -136,6 +138,18 @@ The `any_type` supports the intrinsic types (`integer(int8)`, `integer(int16)`, 
 - `as_complex128()`, `as_complex128_rank[1-15]()`
 - `as_logical()`, `as_logical_rank[1-15]()`
 - `as_char()`, `as_char_rank[1-15]()`
+
+Note that the left-hand side array does not have to be allocatable when using conversion functions, unlike assigning `any_type` to arrays via the assignment operator.
+
+```Fortran
+type(any_type) :: any
+integer(int8), allocatable :: val_a(:)
+integer(int8) :: val_s(15)
+...
+val_a = any                ! allowed
+val   = any                ! not allowed
+val   = as_int8_rank1(any) ! allowed
+```
 
 Extend the `any_type` and add a type-bound procedure for assignment to support types other than the intrinsic types. Also, implement the conversion function if necessary. The following shows an example of supporting a user-defined type `vector_2d`.
 
