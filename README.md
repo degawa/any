@@ -151,7 +151,7 @@ val   = any                ! not allowed
 val   = as_int8_rank1(any) ! allowed
 ```
 
-Extend the `any_type` and add a type-bound procedure for assignment to support types other than the intrinsic types. Also, implement the conversion function if necessary. The following shows an example of supporting a user-defined type `vector_2d`.
+To support types other than the intrinsic types, Extend the `any_type` and add a type-bound procedure for assignment. Also, implement the conversion function if necessary. The following shows an example of supporting a user-defined type `vector_2d`.
 
 ```Fortran
     type, public :: vector_2d
