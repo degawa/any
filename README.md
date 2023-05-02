@@ -122,6 +122,12 @@ When the return value is passed directly to a print or write statement or passin
 print *, as_int32(max_of("int32")), as_real32(max_of("real32"))
 ```
 
+The result is undefined when
+- Assigning the return value to a variable different from the function's return type.
+- Converting to a different type from the function's return type.
+
+Users have the responsibility to match the types and ranks. Using a `any_type` other than the function's return type is not recommended.
+
 ## Supported types and extension
 The `any_type` supports the intrinsic types (`integer(int8)`, `integer(int16)`, `integer(int32)`, `integer(int64)`, `real(real32)`, `real(real64)`, `real(real128)`, `complex(real32)`, `complex(real64)`, `complex(real128)`, `logical`, and `character(*)`) and arrays of ranks 1 to 15 of their types. Note that an array must have the allocatable attribute when assigning `any_type` to the array.
 
