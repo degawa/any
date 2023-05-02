@@ -116,7 +116,7 @@ type is (real(real32))
 end select
 ```
 
-When the return value is passed directory to a print or write statement or passing it to a procedure, the conversion to the specific type is required.
+When the return value is passed directly to a print or write statement or passing it to a procedure, the conversion to the specific type is required.
 
 ```Fortran
 print *, as_int32(max_of("int32")), as_real32(max_of("real32"))
