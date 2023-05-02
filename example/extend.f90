@@ -11,12 +11,12 @@ module extend_any
 
     type, public, extends(any_type) :: any_ext
     contains
-        procedure, public, pass(rhs) :: assign_to_ext
-        generic :: assignment(=) => assign_to_ext
+        procedure, public, pass(rhs) :: assign_to_vec2
+        generic :: assignment(=) => assign_to_vec2
     end type any_ext
 
 contains
-    subroutine assign_to_ext(lhs, rhs)
+    subroutine assign_to_vec2(lhs, rhs)
         use, intrinsic :: iso_fortran_env
         implicit none
         type(vector_2d), intent(inout) :: lhs
@@ -25,7 +25,7 @@ contains
         select type (val => rhs%get_component()); type is (vector_2d)
             lhs = val
         end select
-    end subroutine assign_to_ext
+    end subroutine assign_to_vec2
 
     function as_vector2d(this) result(val)
         implicit none
